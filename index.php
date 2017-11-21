@@ -11,12 +11,16 @@
 	<title>NaliLeht</title>
 </head>
 <body>
-	<div class="meemid">
-		<div class="meme">
-			
+	<div class="wrap">
+		<?php require("header.php")?>
+		<div class="meemid">
+			<div class="meme">
+				<span class="text">	
+					teksti midagi
+				</span>
+			</div>
 		</div>
 	</div>
-	
 </body>
 </html>
 
