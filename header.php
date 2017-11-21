@@ -7,7 +7,7 @@
 			<a class="text" href="index.php">Kodu</a>
 		</div>
 		<div class="float-right">
-			<a class="text" href="index.php">Logi sisse</a>
+			<a class="text" href="login.php">Logi sisse</a>
 		</div>
 	</div>
 </div>
