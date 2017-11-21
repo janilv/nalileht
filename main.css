@@ -1,0 +1,9 @@
+.meme {
+	background: #333333;
+	padding: 20px;
+	margin-bottom: 20px;
+	width: 100%;
+	text-align: center;
+	border: 1px solid #636363;
+	border-radius: 4px;
+}
