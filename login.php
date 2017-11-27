@@ -4,7 +4,6 @@
 	// muutujad
 	$loginUsername = "";
 	$loginUsernameError = "";
-	
 	$notice = "";
 	
 	//kui sisselogimise nuppu on vajutatud
@@ -24,6 +23,12 @@
 		}
 	} // sisselogimise nupu kontroll
 	
+	//kui loo kasutaja nuppu on vajutatud
+	if(isset($_POST["signupButton"])) {
+			$notice = header("Location: signup.php");
+			exit();
+	}
+	
 ?>
 
 <!DOCTYPE html>
@@ -38,13 +43,16 @@
 		<?php require("header.php")?>
 		<h1>Sisselogimine</h1>
 		<form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"])?>">	
-			<label>Kasutajanimi</label>
+			<label>Kasutajanimi: </label>
 			<input name="loginUsername" type="text" value="<?php echo $loginUsername; ?>"><span><?php echo $loginUsernameError; ?></span>
 			<br><br>
-			<input name="loginPassword" placeholder="Salasõna" type="password"><span></span>
+			<label>Parool: </label>
+			<input name="loginPassword" type="password"><span></span>
 			<br><br>
-			<input name ="signinButton" type="submit" value="Logi sisse"><span><?php echo $notice; ?></span>
+			<input name="signinButton" type="submit" value="Logi sisse"><span><?php echo $notice; ?></span>
+			<input name="signupButton" type="submit" value="Loo kasutaja">
 		</form>
+		
 	</div>
 </body>
 </html>

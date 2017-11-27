@@ -42,5 +42,15 @@
 			$stmt->close();
 			$mysqli->close();
 			return $notice;
-	}
+	} //sign in lõpp
+	
+	//kasutaja andmebaasi sisestamine
+	function signUp($loginUsername, $loginPassword, $loginEmail){
+		$mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $GLOBALS["database"]);
+		$stmt = $mysqli->prepare("INSERT INTO users (username, password, email) VALUES (?, ?, ?)");
+		$stmt->bind_param("sss", $loginUsername, $loginPassword, $loginEmail);
+		$stmt->execute();
+		$stmt->close();
+		$mysqli->close();
+	} //sign up lõpp
 ?>
