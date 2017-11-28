@@ -19,7 +19,7 @@
 		//parooli lahtri kontroll
 		if(!empty($loginUsername) and !empty($_POST["loginPassword"])) {
 		echo "Hakkan sisse logima!";
-		$notice = signIn($loginEmail, $_POST["loginPassword"]) ;
+		$notice = signIn($loginUsername, $_POST["loginPassword"]) ;
 		}
 	} // sisselogimise nupu kontroll
 	
