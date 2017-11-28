@@ -108,6 +108,11 @@ body {
 	float: right;
 }
 
+.float-middle {
+	float: left;
+	margin-left: 280px;
+}
+
 .wrap {
     min-height: 100%;
     height: auto;

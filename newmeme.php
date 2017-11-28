@@ -1,4 +1,12 @@
 <?php
+
+require("functions.php");
+//kui pole sisse logitud, liigume login lehele
+if(!isset($_SESSION["userId"])){
+	header("Location: login.php");
+	exit();
+}
+
 $database = "if17_veebiprog12";
 $serverHost = "localhost";
 $serverUsername = "if17";
@@ -12,8 +20,9 @@ $serverPassword = "if17";
 	$maxWidth = 600;
 	$maxHeight = 400;
 	$notice = "";
-	$myTempImage = "";
-	$userid = 2;
+	$myTempImage = "";  
+	$userid = ($_SESSION["userId"]);
+	
 	
 
 	//Kas vajutati nuppu
@@ -114,12 +123,8 @@ $mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBAL
 //valmistame ette käsu andmebaasiserverile
 $stmt = $mysqli->prepare("INSERT INTO memes (title, userid) VALUES (?, ?)");
 echo $mysqli->error;
-$stmt->bind_param("si", $picFiles, $userid);
-//$stmt->execute();
-if ($stmt->execute()){
-	echo "\n Õnnestus!";
-} else {
-	echo "\n Tekkis viga : " .$stmt->error;}
+$stmt->bind_param("si", $title, $userid);
+
 	
 function resizeImage($image, $origW, $origH, $w, $h){
 	$newImage = imagecreatetruecolor($w, $h);
@@ -138,11 +143,14 @@ $mysqli->close();
 <title>Meme üleslaadimine</title>
 </head>
 	<body>
+	<div class="wrap">
+		<?php require("header.php")?>
 	<form action="newmeme.php" method="post" enctype="multipart/form-data">
-    <input type="file" name="fileToUpload" id="fileToUpload"> 
-    <input type="submit" value="Lae üles" name="submit"> </br> </br>
+	<h1>Meme üleslaadimine</h1>  </br> </br>
+    <input type="file" name="fileToUpload" id="fileToUpload"> </br> </br>
+	<input type="text" value="Lisa pealkiri" name="title"> </br> </br>
+	<input type="submit" value="Lae üles" name="submit">
 	
-	<p><a href="index.php">Tagasi pealehele</a></p>
 	
 	</form>
 	</body>

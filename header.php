@@ -9,6 +9,9 @@
 		<div class="float-right">
 			<a class="text" href="login.php">Logi sisse</a>
 		</div>
+		<div class="float-middle">
+			<a class="text" href="newmeme.php">Lisa meme</a>
+		</div>
 	</div>
 </div>
 
