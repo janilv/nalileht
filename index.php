@@ -21,6 +21,17 @@
 			</div>
 		</div>
 	</div>
+	
+			<div class="meemid">
+			<div class="meme">
+				<div class="img">	
+					<span class="text">	
+					nali
+					</span>
+						<img src="https://i.imgur.com/h9y2yjs.jpg" alt="" />
+				</div>
+			</div>
+		</div>
 </body>
 </html>
 

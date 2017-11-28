@@ -17,6 +17,7 @@ body {
 
 .text {
 	color: #fff;
+	position: absolute;
 }
 
 .meemid {
@@ -114,4 +115,11 @@ body {
     margin: 0 auto -60px;
     padding: 0 0 60px;
 }
+
+img{
+    width: relative;
+    max-width:600px;
+	width: 100%;
+}
+
 
