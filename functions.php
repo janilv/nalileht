@@ -47,8 +47,8 @@
 	//kasutaja andmebaasi sisestamine
 	function signUp($loginUsername, $loginPassword, $loginEmail){
 		$mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $GLOBALS["database"]);
-		$stmt = $mysqli->prepare("INSERT INTO users (username, password, email) VALUES (?, ?, ?)");
-		$stmt->bind_param("sss", $loginUsername, $loginPassword, $loginEmail);
+		$stmt = $mysqli->prepare("INSERT INTO users (username, password, email, banned) VALUES (?, ?, ?)");
+		$stmt->bind_param("sss", $loginUsername, $loginPassword, $loginEmail, 0);
 		$stmt->execute();
 		$stmt->close();
 		$mysqli->close();
