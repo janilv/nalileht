@@ -57,7 +57,7 @@
 	function addPhotoData($title,  $filename){
 		//echo $GLOBALS["serverHost"];
 		$mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $GLOBALS["database"]);
-		$stmt = $mysqli->prepare("INSERT INTO memess (title, filename, userid) VALUES (?, ?, ?)");
+		$stmt = $mysqli->prepare("INSERT INTO memes (title, filename, userid) VALUES (?, ?, ?)");
 		echo $mysqli->error;
 		$stmt->bind_param("ssi", $title, $filename, $_SESSION["userId"]);
 		//$stmt->execute();
@@ -68,5 +68,12 @@
 		}
 		$stmt->close();
 		$mysqli->close();
+	}
+	
+	//logout
+	if(isset($_GET['logout'])) {
+	//session_unset();
+	session_destroy();
+	header("Location: index.php");
 	}
 ?>

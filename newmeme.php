@@ -1,6 +1,8 @@
 <?php
 
 require("functions.php");
+require("classes/Photoupload.class.php");
+
 //kui pole sisse logitud, liigume login lehele
 if(!isset($_SESSION["userId"])){
 	header("Location: login.php");
@@ -24,7 +26,7 @@ $serverPassword = "if17";
 	//$userid = ($_SESSION["userId"]);
 	
 	//Algab foto laadimise osa
-	$target_dir = "../../memes/";
+	$target_dir = "memes/";
 	// $thumbs_dir = "../../thumbnails/";
 	$target_file = "";
 	$thumb_file = "";
@@ -35,7 +37,7 @@ $serverPassword = "if17";
 	$maxHeight = 400;
 	$marginVer = 10;
 	$marginHor = 10;
-	
+	$notice = "";
 	//Kas vajutati üleslaadimise nuppu
 	if(isset($_POST["submit"])) {
 		
@@ -99,7 +101,7 @@ $serverPassword = "if17";
 				} else {
 					$alt = "Foto";
 				}
-				if(!isset($_POST["title"]) {
+				if(!isset($_POST["title"])) {
 					$_POST["title"] = "Post Title";
 				}
 				addPhotoData($_POST["title"], $target_file);
