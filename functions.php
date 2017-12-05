@@ -13,7 +13,7 @@
 		$notice = "";
 		//andmebaasi ühendus
 		$mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $GLOBALS["database"]);
-		$stmt = $mysqli->prepare("SELECT id, username, password FROM users WHERE username = ?");
+		$stmt = $mysqli->prepare("SELECT id, username, password, email FROM users WHERE username = ?");
 		$stmt->bind_param("s", $username);
 		$stmt->bind_result($id, $usernameFromDb, $passwordFromDb, $email);
 		$stmt->execute();

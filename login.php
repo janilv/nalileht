@@ -18,7 +18,7 @@
 		}
 		//parooli lahtri kontroll
 		if(!empty($loginUsername) and !empty($_POST["loginPassword"])) {
-		echo "Hakkan sisse logima!";
+		//echo "Hakkan sisse logima!";
 		$notice = signIn($loginUsername, $_POST["loginPassword"]) ;
 		}
 	} // sisselogimise nupu kontroll
