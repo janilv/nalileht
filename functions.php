@@ -54,12 +54,12 @@
 		$mysqli->close();
 	} //sign up lõpp
 	
-	function addPhotoData($filename, $thumbname, $alt, $privacy){
+	function addPhotoData($title,  $filename){
 		//echo $GLOBALS["serverHost"];
 		$mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $GLOBALS["database"]);
-		$stmt = $mysqli->prepare("INSERT INTO vpphotos (userid, filename, thumbnail, alt, privacy) VALUES (?, ?, ?, ?, ?)");
+		$stmt = $mysqli->prepare("INSERT INTO memess (title, filename, userid) VALUES (?, ?, ?)");
 		echo $mysqli->error;
-		$stmt->bind_param("isssi", $_SESSION["userId"], $filename, $thumbname, $alt, $privacy);
+		$stmt->bind_param("ssi", $title, $filename, $_SESSION["userId"]);
 		//$stmt->execute();
 		if ($stmt->execute()){
 			$GLOBALS["notice"] .= "Foto andmete lisamine andmebaasi õnnestus! ";
