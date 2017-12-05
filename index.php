@@ -1,5 +1,5 @@
 <?php
-
+	require("functions.php");
 ?>
 
 <!DOCTYPE html>
@@ -11,7 +11,7 @@
 	<title>NaliLeht</title>
 </head>
 <body>
-	<div class="wrap">
+	<div class="wrap	
 		<?php require("header.php")?>
 		<div class="meemid">
 			<div class="meme">

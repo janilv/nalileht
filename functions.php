@@ -6,7 +6,7 @@
 	
 	$database = "if17_veebiprog12";
 	
-	// session_start();
+	session_start();
 	
 	//sisselogimise funktsioon
 	function signIn($username, $password){
