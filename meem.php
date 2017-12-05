@@ -1,5 +1,18 @@
 <?php
-
+	if(isset($_GET["id"])){
+		$id= $_GET["id"];
+		$mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $GLOBALS["database"]);
+		$stmt = $ttmysqli->prepare("SELECT * FROM memes WHERE id = ".$ttSelectedLanguage);
+		$stmt->bind_result($Result);
+		$Errors[] = $mysqli->error;
+		$stmt->execute();
+		$stmt->fetch();
+		$stmt->close();
+		$mysqli->close();
+	} else {
+		$Errors[] = "Sellist meemi ei leitud!";
+	}
+}
 ?>
 
 <!DOCTYPE html>
@@ -17,12 +30,9 @@
 			
 		</span>
 	</div>
-			<div class="meemid">
+		<div class="meemid">
 			<div class="meme">
 				<div class="img">	
-					<div class="text">	
-					nali
-					</div>
 					<img src="https://i.imgur.com/h9y2yjs.jpg" alt="" />
 				</div>
 			</div>
