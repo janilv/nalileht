@@ -7,7 +7,7 @@
 		</div>
 		<?= isset($_SESSION["userId"]) ? '
 		<div class="float-right">
-			<a class="text" href="login.php?logout">Logi Välja ('.$_SESSION["userlogin"].')</a>
+			<a class="text" href="login.php?logout">Logi välja ('.$_SESSION["userlogin"].')</a>
 		</div>
 		':'
 		<div class="float-right">
