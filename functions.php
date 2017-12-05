@@ -53,4 +53,20 @@
 		$stmt->close();
 		$mysqli->close();
 	} //sign up lõpp
+	
+	function addPhotoData($filename, $thumbname, $alt, $privacy){
+		//echo $GLOBALS["serverHost"];
+		$mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $GLOBALS["database"]);
+		$stmt = $mysqli->prepare("INSERT INTO vpphotos (userid, filename, thumbnail, alt, privacy) VALUES (?, ?, ?, ?, ?)");
+		echo $mysqli->error;
+		$stmt->bind_param("isssi", $_SESSION["userId"], $filename, $thumbname, $alt, $privacy);
+		//$stmt->execute();
+		if ($stmt->execute()){
+			$GLOBALS["notice"] .= "Foto andmete lisamine andmebaasi õnnestus! ";
+		} else {
+			$GLOBALS["notice"] .= "Foto andmete lisamine andmebaasi ebaõnnestus! ";
+		}
+		$stmt->close();
+		$mysqli->close();
+	}
 ?>
