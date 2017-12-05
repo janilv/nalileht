@@ -24,6 +24,11 @@ body {
     margin: 0 auto;
 }
 
+.meemilaadimine{
+	max-width: 700px;
+	margin-left: 700px;
+}
+
 .navbar-inverse {
 
     background-color: #333333;
