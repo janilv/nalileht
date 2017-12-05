@@ -122,8 +122,9 @@ $serverPassword = "if17";
 <title>Meme üleslaadimine</title>
 </head>
 	<body>
+	<?php require("header.php")?>
 		<div class="meemid">
-			<?php require("header.php")?>
+			
 				<div class="meme">
 					<span class="text">	
 						Memede laadimine
