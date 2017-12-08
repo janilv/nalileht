@@ -2,8 +2,9 @@ body {
 	height: 100%;
 	margin: 0;
 	background-color: #161616;
-	color: #fff;
+	color: #DDD;
 	font-family: Helvetica;
+	text-decoration: none;
 }
 
 .meme {
@@ -17,7 +18,24 @@ body {
 }
 
 .text {
-	color: #fff;
+	color: #DDD;
+	text-decoration: none;
+}
+
+.lisamemetext {
+	color: #DDD;
+	text-decoration: none;
+	padding-top: 15px;
+	display: inherit;
+}
+
+.logintext {
+	color: #DDD;
+	text-decoration: none;
+	font-size: 18px;
+	font-weight: bold;
+	padding-top: 15px;
+	display: inherit;
 }
 
 .meemid {
@@ -81,33 +99,23 @@ body {
         border-left-color: transparent;
 }
 .container {
-
     width: 1170px;
-
 }
 .container {
-
     width: 970px;
-
 }
 .container {
-
     width: 750px;
-
 }
 .container {
-
     padding-right: 15px;
     padding-left: 15px;
     margin-right: auto;
     margin-left: auto;
-
 }
 
 .float-left {
-
     float: left;
-
 }
 
 .float-right {
@@ -130,4 +138,14 @@ img{
     width: relative;
     max-width:600px;
 	width: 100%;
+}
+
+.form {
+	margin-bottom: 5px;
+	border-radius: 5px;
+}
+
+.button {
+	margin-bottom: 5px;
+	border-radius: 5px;
 }

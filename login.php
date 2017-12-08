@@ -43,16 +43,18 @@
 		<?php require("header.php")?>
 		<div class="container">
 			<h1>Sisselogimine</h1>
+			
 			<form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"])?>">	
 				<label>Kasutajanimi: </label>
-				<input name="loginUsername" type="text" value="<?php echo $loginUsername; ?>"><span><?php echo $loginUsernameError; ?></span>
+				<input class = "form" name="loginUsername" type="text" value="<?php echo $loginUsername; ?>"><span><?php echo $loginUsernameError; ?></span>
 				<br><br>
 				<label>Parool: </label>
-				<input name="loginPassword" type="password"><span></span>
+				<input class = "form" name="loginPassword" type="password"><span></span>
 				<br><br>
-				<input name="signinButton" type="submit" value="Logi sisse"><span><?php echo $notice; ?></span>
-				<input name="signupButton" type="submit" value="Loo kasutaja">
+				<input class = "button" name="signinButton" type="submit" value="Logi sisse"><span><?php echo $notice; ?></span>
+				<input class = "button" name="signupButton" type="submit" value="Loo kasutaja">
 			</form>
+		
 		</div>
 	</div>
 </body>
