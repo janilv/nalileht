@@ -57,20 +57,21 @@
 <body>
 	<div class="wrap">
 		<?php require("header.php")?>
-		<h1>Kasutaja loomine</h1>
-		<form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"])?>">	
-			<label>Kasutajanimi: </label>
-			<input name="loginUsername" type="text" value="<?php echo $loginUsername; ?>"><span><?php echo $loginUsernameError; ?></span>
-			<br><br>
-			<label>Parool: </label>
-			<input name="loginPassword" type="password"><span><?php echo $loginPasswordError; ?></span>
-			<br><br>
-			<label>E-mail: </label>
-			<input name="loginEmail" type="email" value="<?php echo $loginEmail; ?>"><span><?php echo $loginEmailError; ?></span>
-			<br><br>
-			<input name="signupButton" type="submit" value="Loo kasutaja"><span><?php echo $notice; ?></span>
-		</form>
-		
+		<div class="container">
+			<h1>Kasutaja loomine</h1>
+			<form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"])?>">	
+				<label>Kasutajanimi: </label>
+				<input name="loginUsername" type="text" value="<?php echo $loginUsername; ?>"><span><?php echo $loginUsernameError; ?></span>
+				<br><br>
+				<label>Parool: </label>
+				<input name="loginPassword" type="password"><span><?php echo $loginPasswordError; ?></span>
+				<br><br>
+				<label>E-mail: </label>
+				<input name="loginEmail" type="email" value="<?php echo $loginEmail; ?>"><span><?php echo $loginEmailError; ?></span>
+				<br><br>
+				<input name="signupButton" type="submit" value="Loo kasutaja"><span><?php echo $notice; ?></span>
+			</form>
+		</div>
 	</div>
 </body>
 </html>

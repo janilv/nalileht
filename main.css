@@ -2,7 +2,8 @@ body {
 	height: 100%;
 	margin: 0;
 	background-color: #161616;
-	color: #fff
+	color: #fff;
+	font-family: Helvetica;
 }
 
 .meme {
