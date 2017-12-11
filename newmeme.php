@@ -133,7 +133,7 @@ $serverPassword = "if17";
 		<form action="newmeme.php" method="post" enctype="multipart/form-data" class = "form">
 		</br> </br>
 		<input class = "form" type="file" name="fileToUpload" id="fileToUpload"> </br> </br>
-		<input class = "form" type="text" name="name" placeholder="Lisa pealkiri" style="color:#888;" /> </br> </br>
+		<input class = "form" type="text" name="title" placeholder="Lisa pealkiri" style="color:#888;" /> </br> </br>
 		<input class = "form" type="submit" value="Lae üles" name="submit">
 	</div>
 	
