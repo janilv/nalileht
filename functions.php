@@ -144,7 +144,7 @@
 		$comment .= '
 			<h3><span id="comment_count">'.$count.'</span> Kommentaari</h3>
 			<textarea id="meme-comment-box" class="meme-comment" rows="4" cols="50" placeholder="Kommentaar"></textarea><br>
-			<button onclick="Comment(114)" class="meme-comment-btn">Kommenteeri</button>	
+			<button onclick="Comment('.$id.')" class="meme-comment-btn">Kommenteeri</button>	
 			<div id="comments">';
 			
 		$stmt = $mysqli->prepare("SELECT u.username, c.text FROM `comments` c 
