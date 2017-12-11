@@ -42,13 +42,9 @@ $serverPassword = "if17";
 	if(isset($_POST["submit"])) {
 		
 		if(!empty($_FILES["fileToUpload"]["name"])){
-			
-			//$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 			$imageFileType = strtolower(pathinfo(basename($_FILES["fileToUpload"]["name"]))["extension"]);
 			$timeStamp = microtime(1) *10000;
-			//$target_file = $target_dir . pathinfo(basename($_FILES["fileToUpload"]["name"]))["filename"] ."_" .$timeStamp ."." .$imageFileType;
-			$target_file = "hmv_" .$timeStamp ."." .$imageFileType;
-			// $thumb_file = "hmv_" .$timeStamp .".jpg";
+			$target_file = "meem_" .$timeStamp ."." .$imageFileType;
 		
 			$check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
 			if($check !== false) {
@@ -60,10 +56,10 @@ $serverPassword = "if17";
 			}
 		
 			//Kas selline pilt on juba üles laetud
-			if (file_exists($target_file)) {
-				$notice .= "Kahjuks on selle nimega pilt juba olemas. ";
-				$uploadOk = 0;
-			}
+			// if (file_exists($target_file)) {
+				// $notice .= "Kahjuks on selle nimega pilt juba olemas. ";
+				// $uploadOk = 0;
+			// }
 			//Piirame faili suuruse
 			/*if ($_FILES["fileToUpload"]["size"] > 1000000) {
 				$notice .= "Pilt on liiga suur! ";

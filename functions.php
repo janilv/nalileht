@@ -70,6 +70,106 @@
 		$mysqli->close();
 	}
 	
+	function loadAllMemes() {
+		$memes = "";
+		$mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $GLOBALS["database"]);
+		$stmt = $mysqli->prepare("SELECT * FROM memes ORDER BY id DESC");
+		$stmt->bind_result($Result["id"], $Result["title"],$Result["filename"],$Result["userid"],$Result["score"]); 
+		$Errors[] = $mysqli->error;
+		$stmt->execute();
+		while($stmt->fetch()) {
+			$memes .= 
+			'<div class="meemid">
+				<div class="meme">
+					<a target="_blank" href="post.php?id='.$Result["id"].'">
+						<div class="title">	
+							'.$Result["title"].'
+						</div>
+						<img class="imgmeme" src="memes/'.$Result["filename"].'" alt="" />
+					</a>
+					<div class="scores">
+						<button class="upvote" id="upvote_'.$Result["id"].'" onclick="upvote('.$Result["id"].')"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
+						<button id="downvote_'.$Result["id"].'"onclick="downvote('.$Result["id"].')" class="downvote"><i class="fa fa-chevron-down" aria-hidden="true"></i></button>
+						<span><span id="upvote_count_'.$Result["id"].'">'.$Result["score"].'</span> punkti</span>
+					</div>
+				</div>
+			</div>';
+		}
+		$stmt->close();
+		$mysqli->close();
+		
+		Return $memes;
+	}
+	
+	function loadMeme($id) {
+		$meme = "";
+		$mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $GLOBALS["database"]);
+		$stmt = $mysqli->prepare("SELECT m.id, m.title, m.filename, m.score, u.username FROM memes m inner join users u on m.userid = u.id where m.id =".$id);
+		$stmt->bind_result($Result["id"], $Result["title"],$Result["filename"],$Result["score"],$Result["username"]); 
+		$Errors[] = $mysqli->error;
+		$stmt->execute();
+		while($stmt->fetch()) {
+			$meme .= 
+			'
+			<div class="post">
+				<div class="title">	
+					<h1>'.$Result["title"].' ('.$Result["username"].')</h1>
+				</div>
+				<div class="meme-pic">
+					<img class="meme-view" src="memes/'.$Result["filename"].'" alt="" />
+					<div class="scores">
+						<button class="upvote" id="upvote_'.$Result["id"].'" onclick="upvote('.$Result["id"].')"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
+						<button id="downvote_'.$Result["id"].'"onclick="downvote('.$Result["id"].')" class="downvote"><i class="fa fa-chevron-down" aria-hidden="true"></i></button>
+						<span><span id="upvote_count_'.$Result["id"].'">'.$Result["score"].'</span> punkti</span>
+					</div>
+				</div>
+			</div>';
+		}
+		$stmt->close();
+		$mysqli->close();
+		
+		Return $meme;
+	}
+	
+	function loadComments($id) {
+		$comment = '';
+		$mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $GLOBALS["database"]);
+		$stmt = $mysqli->prepare("SELECT count(*) FROM comments where memeid =".$id);
+		$stmt->bind_result($count); 
+		$Errors[] = $mysqli->error;
+		$stmt->execute();
+		$stmt->fetch();
+		$stmt->close();
+		
+		$comment .= '
+			<h3><span id="comment_count">'.$count.'</span> Kommentaari</h3>
+			<textarea id="meme-comment-box" class="meme-comment" rows="4" cols="50" placeholder="Kommentaar"></textarea><br>
+			<button onclick="Comment(114)" class="meme-comment-btn">Kommenteeri</button>	
+			<div id="comments">';
+			
+		$stmt = $mysqli->prepare("SELECT u.username, c.text FROM `comments` c 
+									inner join users u on c.user = u.id
+									WHERE memeid = ".$id."
+									ORDER BY c.id DESC");
+									
+		$stmt->bind_result($Result["username"], $Result["text"]); 
+		$Errors[] = $mysqli->error;
+		$stmt->execute();
+		while($stmt->fetch()) {
+			$comment .= 
+			'
+			<div class="comment">
+				<h4>'.$Result["username"].'</h4>
+				<br>'.$Result["text"].'       
+			</div>';
+		}
+		$stmt->close();
+		$mysqli->close();
+		
+		Return $comment;
+	}
+	
+	
 	//logout
 	if(isset($_GET['logout'])) {
 	//session_unset();

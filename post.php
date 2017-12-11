@@ -17,11 +17,44 @@
 <body>
 	<div class="wrap">
 		<?php require("header.php")?>
-		<?= loadAllMemes(); ?>
+		<div class="container" >
+			<?= isset($_GET["id"]) ? loadMeme($_GET["id"]) : header("Location: index.php");	//exit(); ?>
+			<?= isset($_GET["id"]) ? loadComments($_GET["id"]) : header("Location: index.php");	//exit(); ?>
+			
+			</div>
+			
+		</div>
 	</div>
 </body>
 </html>
 <script>
+<?php if(isset($_SESSION['userId'])): ?>
+	function Comment(id) {
+		var message = $('#meme-comment-box').val();
+
+		if(message.length > 1)  {
+			$.ajax({
+				url: "actions.php?action=comment&id="+id+"&message="+message,
+				dataType: "json",
+			}).done(function(data) {
+					var comment = '<div class="comment"><h4><?= $_SESSION['userlogin'] ?></h4><br>'+message+'</div>';
+					$('#comments').append(comment);
+					$('#meme-comment-box').val('');
+
+				   var commentcount = parseInt($('#comment_count').html());
+				   commentcount += 1;
+				   $('#comment_count').html(commentcount);
+				}
+			).fail(function(data) {
+				alert('Kommentaari lisamisel tekkis viga.');
+			});   
+		} else {
+			alert('Kommentaar peab olema vähemalt 2 tähemärki pikk');
+		}
+
+	}
+<?php endif; ?>
+	
 function upvote(id) {
     $.ajax({
         url: "actions.php?action=upvote&id="+id,

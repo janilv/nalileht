@@ -7,6 +7,22 @@ body {
 	text-decoration: none;
 }
 
+h1 {
+    color: #DDD;
+}
+
+h2 {
+    color: #DDD;
+}
+
+h3 {
+    color: #DDD;
+}
+
+h4 {
+    color: #DDD;
+}
+
 .meme {
 	background: #333333;
 	padding: 20px;
@@ -15,6 +31,10 @@ body {
 	text-align: center;
 	border: 1px solid #636363;
 	border-radius: 4px;
+}
+
+.meme > a {
+	text-decoration: none;
 }
 
 .text {
@@ -101,12 +121,7 @@ body {
 .container {
     width: 1170px;
 }
-.container {
-    width: 970px;
-}
-.container {
-    width: 750px;
-}
+
 .container {
     padding-right: 15px;
     padding-left: 15px;
@@ -123,8 +138,8 @@ body {
 }
 
 .float-middle {
-	float: left;
-	margin-left: 280px;
+	margin-left: 182px;
+	text-align: center;
 }
 
 .wrap {
@@ -134,7 +149,7 @@ body {
     padding: 0 0 60px;
 }
 
-img{
+.imgmeme{
     width: relative;
     max-width:600px;
 	width: 100%;
@@ -149,3 +164,56 @@ img{
 	margin-bottom: 5px;
 	border-radius: 5px;
 }
+
+.title {
+	color: #DDD;
+	text-decoration: none;
+	font-size: 24px;
+	font-weight: bold;
+	padding-bottom: 15px;
+	display: block;
+}
+
+.scores > .upvote {
+    border: 1px solid #636363;
+    border-radius: 4px;
+    font-size: 24px;
+    margin-top: 15px;
+    background: #333;
+	padding: 12px 15px;
+	transition: all 0.25s ease;
+	color: #999;
+}
+
+.scores > button {
+	padding: 12px 15px;
+	transition: all 0.25s ease;
+	color: #999;
+}
+
+.scores > button:hover {
+    color: #FFF;
+}
+
+.scores > .downvote {
+    border: 1px solid #636363;
+    border-radius: 4px;
+    font-size: 24px;
+    margin-top: 15px;
+    background: #333;
+}
+
+.meme-view {
+    text-align: center;
+    padding: 20px;
+	width: relative;
+    max-width:600px;
+	width: 100%;
+}
+
+.meme-pic {
+	width: 700px;
+	margin: 0 auto;
+	text-align: center;
+}
+
