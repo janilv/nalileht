@@ -17,7 +17,7 @@
 		?>
 		<?= isset($_SESSION["userId"]) ? '
 		<div class="float-middle">
-			<a class="lisamemetext" href="newmeme.php">Lisa meme</a>
+			<a class="logintext" href="newmeme.php">Lisa meme</a>
 		</div>'
 		: ''?>
 	</div>

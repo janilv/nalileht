@@ -117,14 +117,13 @@ $serverPassword = "if17";
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<link rel="stylesheet" href="main.css">
-<title>Meme üleslaadimine</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="main.css">
+	<title>Meme üleslaadimine</title>
 </head>
 	<body>
 	<?php require("header.php")?>
 		<div class="meemid">
-			
 				<div class="meme">
 					<span class="text">	
 						Memede laadimine
@@ -134,12 +133,12 @@ $serverPassword = "if17";
 				</div>
 		</div>
 		
-	<form action="newmeme.php" method="post" enctype="multipart/form-data">
-	</br> </br>
-	<div class="meemilaadimine">
-		<input type="file" name="fileToUpload" id="fileToUpload"> </br> </br>
-		<input type="text" value="Lisa pealkiri" name="title"> </br> </br>
-		<input type="submit" value="Lae üles" name="submit">
+		<div class="container">
+		<form action="newmeme.php" method="post" enctype="multipart/form-data" class = "form">
+		</br> </br>
+		<input class = "form" type="file" name="fileToUpload" id="fileToUpload"> </br> </br>
+		<input class = "form" type="text" name="name" placeholder="Lisa pealkiri" style="color:#888;" /> </br> </br>
+		<input class = "form" type="submit" value="Lae üles" name="submit">
 	</div>
 	
 	
