@@ -134,7 +134,7 @@ $serverPassword = "if17";
 		</br> </br>
 		<input class = "form" type="file" name="fileToUpload" id="fileToUpload"> </br> </br>
 		<input class = "form" type="text" name="title" placeholder="Lisa pealkiri" style="color:#888;" /> </br> </br>
-		<input class = "form" type="submit" value="Lae üles" name="submit">
+		<input class = "button" type="submit" value="Lae üles" name="submit">
 	</div>
 	
 	
