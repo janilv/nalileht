@@ -143,7 +143,7 @@
 		
 		if(isset($_SESSION['userId'])) {
 		$comment .= '
-			<h3><span id="comment_count">'.$count.'</span> Kommentaari</h3>
+			<h3><span id="comment_count">'.$count.'</span> Kommentaarimiseks logi sisse</h3>
 			<textarea id="meme-comment-box" class="meme-comment" rows="4" cols="50" placeholder="Kommentaar"></textarea><br>
 			<button onclick="Comment('.$id.')" class="meme-comment-btn">Kommenteeri</button>	
 			<div id="comments">';
