@@ -151,7 +151,7 @@
 		else {
 			$comment .= '
 			<h3><span id="comment_count">'.$count.'</span> Kommentaari</h3>
-			<textarea id="meme-comment-box" class="meme-comment" rows="4" cols="50" placeholder="Kommentaar"></textarea><br>
+			<textarea disabled id="meme-comment-box" class="meme-comment" rows="4" cols="50" placeholder="Kommentaar"></textarea><br>
 			<button disabled class="meme-comment-btn">Kommenteerimiseks logi sisse</button>	
 			<div id="comments">';
 		}
